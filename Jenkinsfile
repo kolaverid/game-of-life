@@ -12,6 +12,8 @@ pipeline {
         stage('Package'){
             steps {
                 sh 'mvn package'
+				input 'continue to next step?'
+				archiveArtifacts artifacts 'target/*.jar'
             }
         }
     }
